@@ -6,6 +6,7 @@
 //
 
 #import "RLMRealm+MP.h"
+#import "RlmConstants.h"
 #import <ReactiveObjC/ReactiveObjc.h>
 @implementation RLMRealm (MP)
 -(RACSignal<NSArray*>*)rac_observer:(Class)clazz predicate:(NSPredicate *)predicate {
