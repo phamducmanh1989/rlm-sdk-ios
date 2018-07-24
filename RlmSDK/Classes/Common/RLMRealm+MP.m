@@ -9,7 +9,7 @@
 #import "RlmConstants.h"
 #import <ReactiveObjC/ReactiveObjc.h>
 @implementation RLMRealm (MP)
--(RACSignal<NSArray*>*)rac_observer:(Class)clazz predicate:(NSPredicate *)predicate {
++(RACSignal<NSArray*>*)rac_observer:(Class)clazz predicate:(NSPredicate *)predicate {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         
         RLMNotificationToken *token = [predicate == nil
@@ -28,7 +28,7 @@
     }];
 }
 
--(RACSignal *)rac_addOrUpdateObject:(RLMObject *)object {
++(RACSignal *)rac_addOrUpdateObject:(RLMObject *)object {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         NSError *__error = nil;
         RLMRealm *realm = [RLMRealm defaultRealm];
@@ -48,14 +48,14 @@
     }];
 }
 
--(RACSignal *)rac_deleteObjectById:(NSString *)_id withClass:(Class)clazz {
++(RACSignal *)rac_deleteObjectById:(NSString *)_id withClass:(Class)clazz {
     @weakify(self);
     return [[self __rac_findById:_id withClass:clazz] flattenMap:^__kindof RACSignal * _Nullable(RLMObject*  _Nullable value) {
         @strongify(self);
         return [self rac_deleteObject:value];
     }];
 }
--(RACSignal *)rac_deleteObject:(RLMObject *)object {
++(RACSignal *)rac_deleteObject:(RLMObject *)object {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         NSError *__error = nil;
         RLMRealm *realm = [RLMRealm defaultRealm];
@@ -74,12 +74,12 @@
         }];
     }];
 }
--(RACSignal *)rac_findById:(NSString *)_id withClass:(Class)clazz {
++(RACSignal *)rac_findById:(NSString *)_id withClass:(Class)clazz {
     return [[self __rac_findById:_id withClass:clazz] map:^id _Nullable(id  _Nullable value) {
         return [value copy];
     }];
 }
--(RACSignal *)__rac_findById:(NSString *)_id withClass:(Class)clazz {
++(RACSignal *)__rac_findById:(NSString *)_id withClass:(Class)clazz {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         RLMResults *objects = [clazz performSelector:@selector(objectsWithPredicate:) withObject:[NSPredicate predicateWithFormat:@"id == %@", _id]];
         

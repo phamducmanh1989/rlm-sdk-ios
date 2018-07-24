@@ -8,9 +8,9 @@
 #import <Realm/Realm.h>
 @class RACSignal;
 @interface RLMRealm (MP)
--(RACSignal<NSArray*>*)rac_observer:(Class)clazz predicate:(NSPredicate *)predicate ;
--(RACSignal *)rac_addOrUpdateObject:(RLMObject *)object;
--(RACSignal *)rac_deleteObjectById:(NSString *)_id withClass:(Class)clazz;
--(RACSignal *)rac_deleteObject:(RLMObject *)object;
--(RACSignal *)rac_findById:(NSString *)_id withClass:(Class)clazz;
++(RACSignal *)rac_observer:(Class)clazz predicate:(NSPredicate *)predicate ;
++(RACSignal *)rac_addOrUpdateObject:(RLMObject *)object;
++(RACSignal *)rac_deleteObjectById:(NSString *)_id withClass:(Class)clazz;
++(RACSignal *)rac_deleteObject:(RLMObject *)object;
++(RACSignal *)rac_findById:(NSString *)_id withClass:(Class)clazz;
 @end
