@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RlmSDK'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Starter realm sdk framework'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   s.public_header_files = [
-  'RlmSDK/Classes/Common/*.h'
+  'RlmSDK/Classes/Common/RlmConstants.h',
+  'RlmSDK/Classes/Common/RLMRealm+MP.h'
   ]
   s.source_files = 'RlmSDK/Classes/**/*.{h,m}'
   s.subspec 'RlmSDKSubSpec' do |sub_spec|
