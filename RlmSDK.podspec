@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'RlmSDK'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of RlmSDK.'
+  s.summary          = 'Starter realm sdk framework'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,21 +18,23 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+ Starter framework to build cocoapods sdk
                        DESC
 
-  s.homepage         = 'https://phamducmanh1989@github.com/phamducmanh1989/RlmSDK'
+  s.homepage         = 'https://phamducmanh1989@github.com/phamducmanh1989/rlm-sdk-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Manh Pham' => 'phamducmanh1989@gmail.com' }
-  s.source           = { :git => 'https://phamducmanh1989@github.com/phamducmanh1989/RlmSDK.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://phamducmanh1989@github.com/phamducmanh1989/rlm-sdk-ios.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.public_header_files = [
+  'RlmSDK/Classes/Common/*.h'
   ]
   s.source_files = 'RlmSDK/Classes/**/*.{h,m}'
   s.subspec 'RlmSDKSubSpec' do |sub_spec|
-      sub_spec.dependency 'ReactiveObjC', '~>2.1.2'   
+      sub_spec.dependency 'ReactiveObjC', '~>2.1.2'
+      sub_spec.dependency 'Realm'
   end
   s.static_framework = true
   s.default_subspec = 'RlmSDKSubSpec'
@@ -40,5 +42,6 @@ TODO: Add long description of the pod here.
   s.resource_bundles = {
         'RlmSDK' => ['RlmSDK/Assets/*.png', 'RlmSDK/Assets/*.bundle']
     }
-    s.prefix_header_contents =  '#import <ReactiveObjC/ReactiveObjC.h>'
+    s.prefix_header_contents =  '#import <ReactiveObjC/ReactiveObjC.h>',
+    '#import "RlmConstants.h"'
 end
