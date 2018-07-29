@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RlmSDK'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Starter realm sdk framework'
 
 # This description is used to generate tags and improve search results.
@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
   ]
   s.source_files = 'RlmSDK/Classes/**/*.{h,m}'
   s.subspec 'RlmSDKSubSpec' do |sub_spec|
-      sub_spec.dependency 'ReactiveObjC', '~>2.1.2'
+      sub_spec.dependency 'ReactiveObjC', '3.0.0'
       sub_spec.dependency 'Realm'
   end
   s.static_framework = true

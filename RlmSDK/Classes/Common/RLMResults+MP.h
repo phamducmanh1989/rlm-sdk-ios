@@ -1,6 +1,6 @@
 //
 //  RLMResults+MP.h
-//  MediaLibrarySDK
+//  RlmSDK
 //
 //  Created by Manh Pham on 7/12/18.
 //
